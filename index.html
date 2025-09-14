@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的音乐分享站</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎵 我的音乐世界</h1>
+      <p>上传喜欢的音乐，与朋友分享</p>
+    </header>
+
+    <!-- 上传区域 -->
+    <section id="upload-section">
+      <!-- 关键：onchange="uploadAudio()" -->
+      <input 
+        type="file" 
+        id="audio-upload" 
+        accept="audio/*" 
+        style="display: none;" 
+        onchange="uploadAudio()" 
+      />
+      <button onclick="document.getElementById('audio-upload').click()">上传音乐</button>
+    </section>
+
+    <!-- 播放列表 -->
+    <section id="playlist">
+      <h2>我的歌单</h2>
+      <ul id="song-list"></ul>
+    </section>
+
+    <!-- 播放器 -->
+    <section id="player">
+      <audio id="audio-player" controls></audio>
+      <div class="controls">
+        <button onclick="playPause()">▶️ 播放/暂停</button>
+        <button onclick="nextSong()">⏭️ 下一首</button>
+      </div>
+    </section>
+
+    <!-- 评论区 -->
+    <section id="comments">
+      <h2>评论区</h2>
+      <div>
+        <input type="text" id="comment-input" placeholder="写下你的感受..." />
+        <button onclick="addComment()">发表</button>
+      </div>
+      <ul id="comment-list"></ul>
+    </section>
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
